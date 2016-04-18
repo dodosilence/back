@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <diskStore path="/localcache"/>
+    <cache
+            name="stateCache"
+            maxEntriesLocalHeap="10000"
+            maxEntriesLocalDisk="1000"
+            eternal="false"
+            diskSpoolBufferSizeMB="20"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            memoryStoreEvictionPolicy="LFU"
+            transactionalMode="off">
+        <bootstrapCacheLoaderFactory class="com.test.encache.MyBootstrapCacheLoaderFactory"
+                                     properties="ASYNCHRONOUS=true"/>
+    </cache>
+
+    <cache
+            name="stateCache2"
+            maxEntriesLocalHeap="10000"
+            maxEntriesLocalDisk="1000"
+            eternal="false"
+            diskSpoolBufferSizeMB="20"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            memoryStoreEvictionPolicy="LFU"
+            transactionalMode="off">
+        <bootstrapCacheLoaderFactory class="com.test.encache.MyBootstrapCacheLoaderFactory"
+                                     properties="ASYNCHRONOUS=false"/>
+    </cache>
+
+</ehcache>
